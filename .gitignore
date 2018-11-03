@@ -1,0 +1,6 @@
+# project-specific folders and files
+public/bundle.js
+public/bundle.js.map
+
+# installed packages
+node_modules
