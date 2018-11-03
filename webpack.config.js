@@ -1,25 +1,25 @@
-const webpack = require('webpack')
+const isDev = process.env.NODE_ENV === 'development'
 
 module.exports = {
-	entry: './browser/App.jsx',
+	mode: isDev ? 'development' : 'production',
+	entry: [
+		'@babel/polyfill', // enables async-await
+		'./browser/App.js'
+	],
 	output: {
-		path: __dirname + '/public',
-		filename: 'bundle.js'
+		path: __dirname,
+		filename: './public/bundle.js'
 	},
-	context: __dirname,
-	devtool: 'source-map',
 	resolve: {
 		extensions: ['.js', '.jsx']
 	},
+	devtool: 'source-map',
 	module: {
 		rules: [
 			{
-				test: /jsx?$/,
-				exclude: /(node_modules|bower_components)/,
-				loader: 'babel-loader',
-				options: {
-					presets: ['react', 'env', 'stage-2']
-				}
+				test: /\.jsx?$/,
+				exclude: /node_modules/,
+				loader: 'babel-loader'
 			}
 		]
 	}

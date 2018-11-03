@@ -4,10 +4,12 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"start": "node index",
-		"start:dev": "webpack -w & nodemon index.js -e js,html --watch",
-		"db-init": "pg-init auth",
-		"postinstall": "npm run db-init",
+		"start": "nodemon index",
+		"start-dev": "NODE_ENV='development' npm run build-client-watch & npm run start-server",
+		"start-server": "nodemon server -e html,js,scss --ignore public --ignore browser",
+		"build-client": "webpack",
+		"build-client-watch": "webpack -w",
+		"start:dev": "webpack -w & nodemon index -e js,html --watch",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"repository": {
@@ -24,6 +26,7 @@
 		"axios": "^0.18.0",
 		"bootstrap": "^4.1.3",
 		"bootstrap-social": "^5.1.1",
+		"compression": "^1.7.3",
 		"crypto": "^1.0.1",
 		"express": "^4.16.4",
 		"express-session": "^1.15.6",
@@ -35,6 +38,7 @@
 		"passport-google-oauth": "^1.0.0",
 		"passport-twitter": "^1.0.4",
 		"pg": "^7.6.0",
+		"pg-hstore": "^2.3.2",
 		"react": "^16.6.0",
 		"react-contenteditable": "^3.1.1",
 		"react-dom": "^16.6.0",
@@ -45,14 +49,27 @@
 		"sequelize": "^4.41.0"
 	},
 	"devDependencies": {
-		"babel-core": "^6.26.3",
-		"babel-loader": "^8.0.4",
-		"babel-preset-env": "^1.7.0",
-		"babel-preset-react": "^6.24.1",
-		"babel-preset-stage-2": "^6.24.1",
+		"@babel/core": "^7.0.0-beta.55",
+		"@babel/plugin-proposal-class-properties": "7.0.0-beta.54",
+		"@babel/plugin-proposal-decorators": "7.0.0-beta.54",
+		"@babel/plugin-proposal-export-namespace-from": "7.0.0-beta.54",
+		"@babel/plugin-proposal-function-sent": "7.0.0-beta.54",
+		"@babel/plugin-proposal-json-strings": "7.0.0-beta.54",
+		"@babel/plugin-proposal-numeric-separator": "7.0.0-beta.54",
+		"@babel/plugin-proposal-throw-expressions": "7.0.0-beta.54",
+		"@babel/plugin-syntax-dynamic-import": "7.0.0-beta.54",
+		"@babel/plugin-syntax-import-meta": "7.0.0-beta.54",
+		"@babel/polyfill": "^7.0.0-beta.55",
+		"@babel/preset-env": "^7.0.0-beta.55",
+		"@babel/preset-react": "^7.0.0-beta.55",
+		"@babel/register": "^7.0.0-beta.55",
+		"babel-loader": "^8.0.0-beta.4",
 		"nodemon": "^1.18.5",
+		"redux-devtools-extension": "^2.13.5",
 		"redux-logger": "^3.0.6",
+		"redux-mock-store": "^1.5.3",
 		"volleyball": "^1.5.1",
-		"webpack": "^4.24.0"
+		"webpack": "^4.16.4",
+		"webpack-cli": "^3.1.0"
 	}
 }
