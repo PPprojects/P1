@@ -13,7 +13,7 @@ function verificationCallback(token, refreshToken, profile, done) {
 	// github may not provide an email, if so we'll just fake it
 	const email = profile.emails
 		? profile.emails[0].value
-		: [profile.username, 'fake-auther-email.com'].join('@')
+		: [profile.employeename, 'fake-auther-email.com'].join('@')
 	const photo = profile.photos ? profile.photos[0].value : undefined
 
 	const info = {

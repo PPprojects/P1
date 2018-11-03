@@ -22,14 +22,14 @@ app.use(
 app.use(passport.initialize()) // middleware required to initialize Passport
 app.use(passport.session()) // hooks into the persistent sessions we are using
 
-passport.serializeUser(function(user, done) {
-	done(null, user.id)
+passport.serializeEmployee(function(employee, done) {
+	done(null, employee.id)
 })
 
-passport.deserializeUser(function(id, done) {
+passport.deserializeEmployee(function(id, done) {
 	Employee.findById(id)
-		.then(function(user) {
-			done(null, user)
+		.then(function(employee) {
+			done(null, employee)
 		})
 		.catch(done)
 })
@@ -41,7 +41,7 @@ app.use(function(req, res, next) {
 })
 
 app.use(function(req, res, next) {
-	console.log('SESSION USER: ', req.user && req.user.id)
+	console.log('SESSION USER: ', req.employee && req.employee.id)
 	next()
 })
 

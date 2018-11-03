@@ -12,7 +12,7 @@ const googleCredentials = {
 // The following callback will be used when passport successfully authenticates with Google (the provider) for us, using our `clientId`, `clientSecret` and the temporary token from the client
 // Google will send back the `token`, `refreshToken` and `profile` - passport provides the `done` function
 function verificationCallback(token, refreshToken, profile, done) {
-	// the callback will pass back user profile information and each service (Facebook, Twitter, and Google) will pass it back a different way. Passport standardizes the information that comes back in its profile object.
+	// the callback will pass back employee profile information and each service (Facebook, Twitter, and Google) will pass it back a different way. Passport standardizes the information that comes back in its profile object.
 	const info = {
 		name: profile.displayName,
 		email: profile.emails[0].value,
@@ -20,11 +20,11 @@ function verificationCallback(token, refreshToken, profile, done) {
 	}
 
 	Employee.findOrCreate({
-		where: { googleId: profile.id }, // find this user
+		where: { googleId: profile.id }, // find this employee
 		defaults: info // if we don't find them, then create with this information
 	})
-		.spread((user, createdBool) => {
-			done(null, user)
+		.spread((employee, createdBool) => {
+			done(null, employee)
 		})
 		.catch(done)
 }
@@ -41,7 +41,7 @@ router.get(
 	passport.authenticate('google', { failureRedirect: '/login' }),
 	(req, res) => {
 		// a successRedirect is fine, but with this we can use `req` for a more meaningful redirect
-		res.redirect(`/users/${req.user.id}`)
+		res.redirect(`/employees/${req.employee.id}`)
 	}
 )
 

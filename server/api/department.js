@@ -1,5 +1,4 @@
 const router = require('express').Router()
-
 const HttpError = require('../utils/HttpError')
 const { Department, Employee } = require('../db/models')
 
@@ -25,7 +24,7 @@ router.post('/', (req, res, next) => {
 		.then((department) =>
 			department.reload(Department.options.scopes.populated())
 		)
-		// .then((storyIncludingAuthor) => res.status(201).json(storyIncludingAuthor))
+		// .then((departmentIncludingAuthor) => res.status(201).json(departmentIncludingAuthor))
 		.then((deptWithEmpl) => res.status(201).json(deptWithEmpl))
 		.catch(next)
 })
@@ -43,7 +42,7 @@ router.put('/:id', (req, res, next) => {
 		.then((department) =>
 			department.reload(Department.options.scopes.populated())
 		)
-		// .then((storyIncludingAuthor) => res.json(storyIncludingAuthor))
+		// .then((departmentIncludingAuthor) => res.json(departmentIncludingAuthor))
 		.then((deptWithEmpl) => res.json(deptWithEmpl))
 		.catch(next)
 })

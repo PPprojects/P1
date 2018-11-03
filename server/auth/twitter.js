@@ -13,7 +13,7 @@ function verificationCallback(token, refreshToken, profile, done) {
 	// twitter may not provide an email, if so we'll just fake it
 	const email = profile.emails
 		? profile.emails[0].value
-		: [profile.username, 'fake-auther-email.com'].join('@')
+		: [profile.employeename, 'fake-auther-email.com'].join('@')
 	const photo = profile.photos ? profile.photos[0].value : undefined
 	const info = {
 		name: profile.displayName,
@@ -25,8 +25,8 @@ function verificationCallback(token, refreshToken, profile, done) {
 		where: { twitterId: profile.id },
 		defaults: info
 	})
-		.spread((user) => {
-			done(null, user)
+		.spread((employee) => {
+			done(null, employee)
 		})
 		.catch(done)
 }
@@ -39,7 +39,7 @@ router.get(
 	'/verify',
 	passport.authenticate('twitter', { failureRedirect: '/login' }),
 	(req, res) => {
-		res.redirect(`/users/${req.user.id}`)
+		res.redirect(`/employees/${req.employee.id}`)
 	}
 )
 

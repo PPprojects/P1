@@ -21,7 +21,7 @@ router.put('/login', (req, res, next) => {
 				}
 				res.send(employee) // 200 is the default status!
 			})
-			// req.session.userId = employee.id; // from when we just had sessions and no passport
+			// req.session.employeeId = employee.id; // from when we just had sessions and no passport
 		})
 		.catch(next)
 })
@@ -53,8 +53,8 @@ router.delete('/logout', (req, res, next) => {
 	/* Below is from when we just had sessions and no passport */
 	// req.session.destroy(); // destroys entire session
 	/* Below are alternatives to the above
-  delete req.session.userId; // deletes one item on session
-  req.session.userId = null;
+  delete req.session.employeeId; // deletes one item on session
+  req.session.employeeId = null;
   */
 	res.sendStatus(204)
 })
