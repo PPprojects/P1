@@ -1,15 +1,14 @@
 const app = require('./server')
 const PORT = process.env.PORT || 1337
 const { db } = require('./server/db/models')
+const chalk = require('chalk')
 
 db.sync({ force: false })
 	.then(() => {
-		console.log(
-			'The postgres server is up and running - maybe you should go catch it!'
-		)
+		console.log(chalk.black.bgMagenta('Postgres server is up and running...'))
 		app.listen(PORT, (err) => {
 			if (err) throw err
-			console.log(`Your server kindly awaits your attention on port ${PORT}`)
+			console.log(chalk.black.bgMagenta(`Server is listening on port ${PORT}.`))
 		})
 	})
 	.catch(console.error)

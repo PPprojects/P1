@@ -102,7 +102,7 @@ const mapState = ({ currentEmployee }) => ({ currentEmployee })
 
 const mapDispatch = (dispatch, ownProps) => ({
 	logout: () => {
-		dispatch(logout(ownProps.hidepartment))
+		dispatch(logout(ownProps.history))
 	}
 })
 

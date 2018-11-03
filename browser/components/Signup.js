@@ -95,7 +95,7 @@ const mapState = () => ({ message: 'Sign up' })
 
 const mapDispatch = (dispatch, ownProps) => ({
 	signup: (credentials) => {
-		dispatch(signup(credentials, ownProps.hidepartment))
+		dispatch(signup(credentials, ownProps.history))
 	}
 })
 

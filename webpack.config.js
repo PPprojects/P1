@@ -6,6 +6,7 @@ module.exports = {
 		'@babel/polyfill', // enables async-await
 		'./browser/App.js'
 	],
+	stats: 'errors-only', //minimizes logging of webpack
 	output: {
 		path: __dirname,
 		filename: './public/bundle.js'

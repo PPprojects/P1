@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize')
-//_db to avoid cyclical importing of db, not the best design, I know but I'm used to it by now
+//  _db to avoid cyclical importing of db
 const db = new Sequelize('postgres://localhost:5432/p1', {
+	operatorsAliases: false, //turns off repetitive warning
 	define: {
 		timestamps: false,
 		underscored: true

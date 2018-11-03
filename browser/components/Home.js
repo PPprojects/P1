@@ -30,12 +30,11 @@ const Home = () => (
 							/>
 						</div>
 						<div className="media-body">
-							<p className="media-heading large-font">Some hipster ipsum</p>
+							<p className="media-heading large-font">
+								Some Media Heading Here
+							</p>
 							<span>
-								Fashion axe butcher listicle, viral banh mi +1 Carles Pitchfork
-								actually chia. Polaroid farm-to-table letterpress, fashion axe
-								pour-over banjo ugh American Apparel art party Odd Future
-								Neutra. Ugh YOLO tilde Pinterest McSweeney's umami.
+								Some long paragraph here... maybe an introduction of some sort.
 							</span>
 						</div>
 					</div>
@@ -44,11 +43,11 @@ const Home = () => (
 					<br />
 					<div className="media large-font">
 						<div className="media-body">
-							<p className="media-heading large-font">More ipsum!</p>
+							<p className="media-heading large-font">More heading!</p>
 							<span>
-								Hoodie taxidermy Brooklyn bitters, XOXO forage typewriter
-								single-origin coffee. Slow-carb try-hard hashtag mlkshk narwhal
-								sartorial.
+								Doop doop scoopidy-poo. Doop doop scoopidy-poo. Doop doop
+								scoopidy-poo. Doop doop scoopidy-poo. Doop doop scoopidy-poo.
+								Doop doop scoopidy-poo. Doop doop scoopidy-poo.
 							</span>
 						</div>
 						<div className="media-right media-middle">

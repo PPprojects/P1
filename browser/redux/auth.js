@@ -30,10 +30,10 @@ export default function reducer(currentEmployee = {}, action) {
 
 /* ------------       THUNK CREATORS     ------------------ */
 
-export const login = (credentials, hidepartment) => (dispatch) => {
+export const login = (credentials, history) => (dispatch) => {
 	axios
 		.put('/auth/local/login', credentials)
-		.then((res) => setEmployeeAndRedirect(res.data, hidepartment, dispatch))
+		.then((res) => setEmployeeAndRedirect(res.data, history, dispatch))
 		.catch((err) =>
 			console.error(
 				`Logging in with ${credentials.email} and ${
@@ -44,18 +44,18 @@ export const login = (credentials, hidepartment) => (dispatch) => {
 		)
 }
 
-export const logout = (hidepartment) => (dispatch) => {
+export const logout = (history) => (dispatch) => {
 	axios
 		.delete('/auth/local/logout')
 		.then((res) => dispatch(removeCurrentEmployee(res.data)))
-		.then(() => hidepartment.push('/login'))
+		.then(() => history.push('/login'))
 		.catch((err) => console.error('Logging out was unsuccesful', err))
 }
 
 export const signup = (credentials) => (dispatch) => {
 	axios
 		.post('/auth/local/signup', credentials)
-		.then((res) => setEmployeeAndRedirect(res.data, hidepartment, dispatch))
+		.then((res) => setEmployeeAndRedirect(res.data, history, dispatch))
 		.catch((err) =>
 			console.error(
 				`Signing up with ${credentials.email} and ${
@@ -75,7 +75,7 @@ export const fetchCurrentEmployee = () => (dispatch) => {
 
 /* ------------      HELPER FUNCTIONS     ------------------ */
 
-function setEmployeeAndRedirect(employee, hidepartment, dispatch) {
+function setEmployeeAndRedirect(employee, history, dispatch) {
 	dispatch(setCurrentEmployee(employee))
-	hidepartment.push(`/employees/${employee.id}`)
+	history.push(`/employees/${employee.id}`)
 }

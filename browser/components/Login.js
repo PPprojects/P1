@@ -95,7 +95,7 @@ class Login extends React.Component {
 const mapState = () => ({ message: 'Log in' })
 const mapDispatch = (dispatch, ownProps) => ({
 	login: (credentials) =>
-		dispatch(loginFromReducer(credentials, ownProps.hidepartment))
+		dispatch(loginFromReducer(credentials, ownProps.history))
 })
 
 export default connect(
