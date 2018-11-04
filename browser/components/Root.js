@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import Home from './Home'
 import Login from './Login'
@@ -52,8 +52,4 @@ const mapDispatch = (dispatch) => ({
 		dispatch(fetchCurrentEmployee())
 	}
 })
-
-export default connect(
-	mapState,
-	mapDispatch
-)(Root)
+export default connect(mapState, mapDispatch)(Root)

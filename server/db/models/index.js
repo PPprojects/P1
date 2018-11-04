@@ -3,8 +3,8 @@ const Employee = require('./employee')
 const Department = require('./department')
 
 Department.hasMany(Employee, {
-	onDelete: 'cascade', // remove all associated employees when department is deleted
-	hooks: true // makes the cascade actually work.
+	onDelete: 'cascade', // removes all associated employees when a department is deleted
+	hooks: true // helps the cascade actually got all the way to the server and back
 })
 Department.belongsTo(Employee, {
 	as: 'Leader',

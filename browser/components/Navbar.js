@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink, withRouter } from 'react-router-dom'
-
 import { logout } from '../redux/auth'
 
 /* -----------------    COMPONENT     ------------------ */
@@ -93,12 +92,12 @@ class Navbar extends React.Component {
 
 const mapState = ({ currentEmployee }) => ({ currentEmployee })
 
-// // equivalent to:
+// this is the same as:
 // const mapState = state => {
 //   return {
 //     currentEmployee: state.currentEmployee
-//   };
-// };
+//   }
+// }
 
 const mapDispatch = (dispatch, ownProps) => ({
 	logout: () => {

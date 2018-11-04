@@ -36,9 +36,7 @@ export const login = (credentials, history) => (dispatch) => {
 		.then((res) => setEmployeeAndRedirect(res.data, history, dispatch))
 		.catch((err) =>
 			console.error(
-				`Logging in with ${credentials.email} and ${
-					credentials.password
-				} was unsuccesful`,
+				`Logging in with ${credentials.email} and ${credentials.password} was unsuccesful`,
 				err
 			)
 		)
@@ -58,9 +56,7 @@ export const signup = (credentials) => (dispatch) => {
 		.then((res) => setEmployeeAndRedirect(res.data, history, dispatch))
 		.catch((err) =>
 			console.error(
-				`Signing up with ${credentials.email} and ${
-					credentials.password
-				} was unsuccesful`,
+				`Signing up with ${credentials.email} and ${credentials.password} was unsuccesful`,
 				err
 			)
 		)
