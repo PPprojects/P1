@@ -4,12 +4,12 @@ module.exports = {
 	mode: isDev ? 'development' : 'production',
 	entry: [
 		'@babel/polyfill', // enables async-await
-		'./browser/App.js'
+		'./browser/App.js' //injection in
 	],
 	stats: 'errors-only', //minimizes logging of webpack
 	output: {
 		path: __dirname,
-		filename: './public/bundle.js'
+		filename: './public/bundle.js' //injection out
 	},
 	resolve: {
 		extensions: ['.js', '.jsx']

@@ -27,6 +27,7 @@
 		"bootstrap-social": "^5.1.1",
 		"cartoon-avatar": "^1.0.2",
 		"chalk": "^2.4.1",
+		"chalk-animation": "^1.6.0",
 		"compression": "^1.7.3",
 		"crypto": "^1.0.1",
 		"express": "^4.16.4",
